@@ -6,11 +6,10 @@ on:
       - 'master'
 
 jobs:
-  
-  list-directory:
-    name: List directory structure
-    run: ls -R
 
+  - name: List directory structure
+    run: ls -R
+    
   docker:
     runs-on: ubuntu-latest
     strategy:
