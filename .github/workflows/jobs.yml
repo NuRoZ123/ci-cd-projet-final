@@ -21,7 +21,9 @@ jobs:
     steps:
       -
         name: List directories
-        run: ls -l
+        run: |
+          echo "Listing contents of the repository root:"
+          ls -l
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
