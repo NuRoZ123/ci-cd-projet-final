@@ -15,10 +15,6 @@ jobs:
           - order-service
           - user-service
     steps:
-      - 
-        name: List directory structure
-        run: ls -R
-
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
