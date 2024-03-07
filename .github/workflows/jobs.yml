@@ -19,6 +19,9 @@ jobs:
             image_name: nuroz123/user-service
 
     steps:
+       - 
+        name: Checkout code
+        uses: actions/checkout@v2
       -
         name: List directories
         run: |
