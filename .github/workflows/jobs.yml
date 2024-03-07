@@ -3,17 +3,21 @@ name: Docker image build and push
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
 
 jobs:
-  docker:
+  build-and-push:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service:
-          - front-end-react
-          - order-service
-          - user-service
+        include:
+          - context: front-end-react
+            image_name: nuroz123/front-end-react
+          - context: order-service
+            image_name: nuroz123/order-service
+          - context: user-service
+            image_name: nuroz123/user-service
+
     steps:
       -
         name: Set up QEMU
@@ -28,9 +32,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and push ${{ matrix.context }}
         uses: docker/build-push-action@v5
         with:
-          context: ../../${{ matrix.service }}
+          context: ./${{ matrix.context }}
           push: true
-          tags: nuroz123/${{ matrix.service }}:latest
+          tags: ${{ matrix.image_name }}:latest
