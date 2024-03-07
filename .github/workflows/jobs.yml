@@ -6,6 +6,11 @@ on:
       - 'master'
 
 jobs:
+  
+  list-directory:
+    name: List directory structure
+    run: ls -R
+
   docker:
     runs-on: ubuntu-latest
     strategy:
@@ -31,6 +36,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ${{ matrix.service }}
+          context: ./${{ matrix.service }}
           push: true
           tags: nuroz123/${{ matrix.service }}:latest
