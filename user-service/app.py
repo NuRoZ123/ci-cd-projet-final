@@ -10,6 +10,7 @@ client = MongoClient('mongodb://host.docker.internal:27017/')
 db = client['userdb']
 collection = db['user']
 
+
 @app.route('/user', methods=['GET'])
 def get_user_data():
     # Fetch all user data from MongoDB
