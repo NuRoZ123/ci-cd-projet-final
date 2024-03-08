@@ -18,5 +18,5 @@ spec:
       - image: nuroz123/front-end-react:1.0.0
         name: front-end-react
         ports:
-        - containerPort: 80
+        - containerPort: 3000
           name: front-end-react
