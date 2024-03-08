@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: front-end-react
+  name: front-end-react
+spec:
+  type: NodePort
+  ports:
+  - name: "front-end-react-service"
+    port: 5002
+    targetPort: 3000
+    nodePort: 31002
+  selector:
+    app: front-end-react

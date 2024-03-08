@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: vote
+  name: vote
+spec:
+  type: NodePort
+  ports:
+  - name: "user-service-service"
+    port: 5000
+    targetPort: 3001
+    nodePort: 31000
+  selector:
+    app: vote
+  
