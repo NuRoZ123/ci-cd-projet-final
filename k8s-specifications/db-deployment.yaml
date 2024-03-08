@@ -10,7 +10,7 @@ spec:
   - name: "db-service"
     port: 27017
     targetPort: 27017
-    nodePort: 27017
+    nodePort: 30000
   selector:
     app: db
   
