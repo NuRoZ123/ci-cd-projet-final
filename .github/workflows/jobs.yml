@@ -3,7 +3,7 @@ name: Docker image build and push
 on:
   push:
     branches:
-      - 'master'
+      - '[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build-and-push:
@@ -23,11 +23,6 @@ jobs:
         name: Checkout code
         uses: actions/checkout@v2
       -
-        name: List directories
-        run: |
-          echo "Listing contents of the repository root:"
-          ls -l
-      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       -
@@ -45,4 +40,4 @@ jobs:
         with:
           context: ./${{ matrix.context }}
           push: true
-          tags: ${{ matrix.image_name }}:latest
+          tags: ${{ matrix.image_name }}:${{ steps.extract_branch.outputs.branch }}
