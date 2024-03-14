@@ -7,7 +7,7 @@ spec:
   selector:
     app: front-end-react
   ports:
-  - name: "front-end-react-service"
-    port: 5002
+  - name: "front-end-react"
+    port: 80
     targetPort: 80
     nodePort: 31002
