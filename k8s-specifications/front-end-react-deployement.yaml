@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front-end-react
+  name: react-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: front-end-react
+      app: react-app
   template:
     metadata:
       labels:
-        app: front-end-react
+        app: react-app
     spec:
       containers:
-      - image: nuroz123/front-end-react:1.0.0
-        name: front-end-react
+      - name: react-app
+        image: nuroz123/front-end-react:1.0.0
         ports:
         - containerPort: 80
-          name: front-end-react

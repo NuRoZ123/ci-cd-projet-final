@@ -1,13 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: front-end-react
+  name: react-app-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
-    app: front-end-react
+    app: react-app
   ports:
-  - name: "front-end-react"
+  - protocol: TCP
     port: 80
     targetPort: 80
-    nodePort: 31002
